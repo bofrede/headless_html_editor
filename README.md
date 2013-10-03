@@ -1,6 +1,6 @@
 # HeadlessHtmlEditor
 
-TODO: Write a gem description
+Headless HTML Editor - edit HTML files, without a UI.
 
 ## Installation
 
@@ -18,7 +18,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    editor = HeadlessHtmlEditor.new(File.expand_path(ARGV[0]))
+    editor.dom.at_css('html').add_child '<!-- HeadlessHtmlEditor was here! -->'
+    editor.save!
+
+See the nokogiri documentation for documentation on the dom object.
 
 ## Contributing
 
