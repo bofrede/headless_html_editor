@@ -1,4 +1,5 @@
 # HeadlessHtmlEditor
+[![Gem Version](https://badge.fury.io/rb/headless_html_editor.png)](http://badge.fury.io/rb/headless_html_editor)
 
 Headless HTML Editor - edit HTML files, without a UI.
 
@@ -26,8 +27,8 @@ See the nokogiri documentation for documentation on the dom object.
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+1. Fork it.
+2. Create your feature branch. `git checkout -b my-new-feature`
+3. Commit your changes. `git commit -am 'Add some feature'`
+4. Push to the branch. `git push origin my-new-feature`
+5. Create new Pull Request.
