@@ -109,10 +109,10 @@ class HeadlessHtmlEditor
 
   # Remove script tags from the header
   def remove_header_scripts
-    @dom.css('script').remove
+    @dom.css('head script').remove
   end
 
-  # Change tracking in MS Word, adds a lot of ins and del tags. These tags are removed.
+  # Remove ins and del tags added by MS Words Change Tracking.
   def accept_word_changes_tracked
     @dom.css('del').remove
     @dom.css('ins').each do |ins|
@@ -125,6 +125,11 @@ class HeadlessHtmlEditor
     @dom.css('h1, h2, h3, h4, h5').each do |heading|
       heading.name = "h#{heading.name[1].to_i + 1}"
     end
+  end
+
+  def remove_break_after_block
+    block_tags = %w{h1 h2 h3 h4 h5 h6 p div table}
+    @dom.css(block_tags.join(' + br, ') + ' + br').remove
   end
 
   # Save the file with the same file name.
