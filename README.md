@@ -1,5 +1,6 @@
 # HeadlessHtmlEditor
 [![Gem Version](https://badge.fury.io/rb/headless_html_editor.png)](http://badge.fury.io/rb/headless_html_editor)
+[![Build Status](https://secure.travis-ci.org/bofrede/headless_html_editor.png?branch=master)](http://travis-ci.org/bofrede/headless_html_editor)
 
 Headless HTML Editor - edit HTML files, without a UI.
 
