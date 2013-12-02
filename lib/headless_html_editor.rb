@@ -17,7 +17,7 @@ class HeadlessHtmlEditor
   # Create a new Headless HTML Editor.
   def initialize(input_file_name, input_encoding = 'utf-8')
     @input_file_name = input_file_name
-    if File.file?(input_file_name) && File.fnmatch?('**.html', input_file_name)
+    if File.file?(input_file_name) && File.fnmatch?('**.html', input_file_name, File::FNM_CASEFOLD)
       # read html file
       puts "R: #{input_file_name}"
       @dom = Nokogiri::HTML(
