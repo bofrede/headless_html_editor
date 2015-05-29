@@ -72,7 +72,8 @@ class HeadlessHtmlEditor
       toc_item = @dom.at_css('.MsoToc1')
       previous_toc_level = 0
       new_toc = []
-      while toc_item
+      loop
+        break if toc_item.nil?
         toc_item.inner_html = toc_item.inner_html.sub(/\n/, ' ')
         class_attr = toc_item.attr('class')
         current_toc_level = class_attr[6].to_i
@@ -87,9 +88,10 @@ class HeadlessHtmlEditor
           new_toc << "<li>#{toc_item.inner_html.sub(/#_Toc/, '#Toc')}"
         end
         previous_toc_level = current_toc_level
-        begin
+        loop
           toc_item = toc_item.next_element
-        end while toc_item && toc_item.text?
+          breake unless toc_item && toc_item.text?
+        end
         toc_item = nil unless toc_item && toc_item.attr('class') && toc_item.attr('class').start_with?('MsoToc')
       end
       @dom.at_css('.MsoToc1').replace(new_toc.join('')) if @dom.at_css('.MsoToc1')
@@ -141,7 +143,7 @@ class HeadlessHtmlEditor
   def save_as!(output_file_name, output_encoding = 'utf-8')
     puts "W: #{output_file_name}"
     begin
-      if File.writable?(output_file_name) || !File.exists?(output_file_name)
+      if File.writable?(output_file_name) || !File.exist?(output_file_name)
         File.open(output_file_name, "w:#{output_encoding}", universal_newline: false) do |f|
           f.write @dom.to_html(encoding: output_encoding, indent: 2)
         end
