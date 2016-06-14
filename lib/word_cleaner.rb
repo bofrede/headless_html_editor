@@ -48,6 +48,7 @@ module WordCleaner
     @dom.css('table + br').remove
   end
 
+  # Build a new semantic Table Of Content, and delete the old nasty one.
   def rebuild_toc
     # Remove page numbers from TOC
     @dom.css('.MsoToc1 a, .MsoToc2 a, .MsoToc3 a, .MsoToc4 a').each do |item|
