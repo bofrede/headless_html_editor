@@ -57,7 +57,8 @@ class HeadlessHtmlEditor
     begin
       if File.writable?(output_file_name) || !File.exist?(output_file_name)
         File.open(output_file_name, "w:#{output_encoding}", universal_newline: false) do |f|
-          f.write @dom.to_html(encoding: output_encoding, indent: 2)
+          f.write '<!DOCTYPE html>'
+          f.write @dom.root.to_html(encoding: output_encoding, indent: 2)
         end
       else
         $stderr.puts 'Failed: Read only!'
